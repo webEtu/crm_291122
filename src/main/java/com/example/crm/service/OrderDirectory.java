@@ -20,4 +20,8 @@ public class OrderDirectory {
     public List<Order> getOrders() {
         return orderRepository.findAll();
     }
+
+    public void addOrder(Order newOrder) {
+        orderRepository.save(newOrder);
+    }
 }
