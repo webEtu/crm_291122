@@ -42,4 +42,14 @@ public class ClientController {
         clientDirectory.deleteClient(id);
     }
 
+    @PutMapping("clients/{id}")
+    public ResponseEntity updateClient(@RequestBody Client client, @PathVariable("id") Integer id) {
+        if (id != client.getId()) {
+            return ResponseEntity.badRequest().build();
+        } else {
+            clientDirectory.updateClient(client, id);
+            return ResponseEntity.ok().build();
+        }
+    }
+
 }
