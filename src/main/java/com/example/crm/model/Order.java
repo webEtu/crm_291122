@@ -21,7 +21,7 @@ public class Order {
     @Column(name="unit_price")
     private float unit_price;
     @Column(name="state")
-    private boolean state;
+    private OrderState state;
     @JsonIgnore
     private float total_exclude_taxe;
     @JsonIgnore
@@ -30,7 +30,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(Client client, String type_presta, String designation, int nb_days, float unit_price, boolean state) {
+    public Order(Client client, String type_presta, String designation, int nb_days, float unit_price, OrderState state) {
         this.client = client;
         this.type_presta = type_presta;
         this.designation = designation;
@@ -87,11 +87,11 @@ public class Order {
         this.unit_price = unit_price;
     }
 
-    public boolean isState() {
+    public OrderState getState() {
         return state;
     }
 
-    public void setState(boolean state) {
+    public void setState(OrderState state) {
         this.state = state;
     }
 

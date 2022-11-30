@@ -27,13 +27,13 @@ public class Client {
     @Column(name = "country")
     private String country;
     @Column(name = "state")
-    private boolean state;
+    private ClientState state;
 
     public Client() {
 
     }
 
-    public Client(String company_name, String first_name, String last_name, String email, String phone, String address, String zip_code, String city, String country, boolean state) {
+    public Client(String company_name, String first_name, String last_name, String email, String phone, String address, String zip_code, String city, String country, ClientState state) {
         this.company_name = company_name;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -126,11 +126,11 @@ public class Client {
         this.country = country;
     }
 
-    public boolean isState() {
+    public ClientState getState() {
         return state;
     }
 
-    public void setState(boolean state) {
+    public void setState(ClientState state) {
         this.state = state;
     }
 
@@ -149,5 +149,41 @@ public class Client {
                 ", country='" + country + '\'' +
                 ", state=" + state +
                 '}';
+    }
+
+    public void patch(Client clientToUpdate) {
+
+        if(clientToUpdate.getCompany_name() != null) {
+            this.company_name = clientToUpdate.getCompany_name();
+        }
+
+        if(clientToUpdate.getFirst_name() != null) {
+            this.first_name = clientToUpdate.getFirst_name();
+        }
+        if(clientToUpdate.getLast_name() != null) {
+            this.last_name = clientToUpdate.getLast_name();
+        }
+        if(clientToUpdate.getEmail() != null) {
+            this.email = clientToUpdate.getEmail();
+        }
+        if(clientToUpdate.getPhone() != null) {
+            this.phone = clientToUpdate.getPhone();
+        }
+        if(clientToUpdate.getAddress() != null) {
+            this.address = clientToUpdate.getAddress();
+        }
+        if (clientToUpdate.getZip_code() != null) {
+            this.zip_code = clientToUpdate.getZip_code();
+        }
+        if (clientToUpdate.getCity() != null) {
+            this.city = clientToUpdate.getCity();
+        }
+        if (clientToUpdate.getCountry() != null) {
+            this.country = clientToUpdate.getCountry();
+        }
+
+        if (clientToUpdate.getState() != null) {
+            this.state = clientToUpdate.getState();
+        }
     }
 }

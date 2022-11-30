@@ -52,4 +52,10 @@ public class ClientController {
         }
     }
 
+    @PutMapping("clients/{id}")
+    public void patchClient(@RequestBody Client client, @PathVariable("id") Integer id) {
+        clientDirectory.patchClient(client, id);
+    }
+
+
 }
