@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("api")
-public class OrderContoller {
+public class OrderController {
     @Autowired
     private OrderDirectory orderDirectory;
 
@@ -25,6 +26,11 @@ public class OrderContoller {
         } else {
             return ResponseEntity.ok(optionalOrder.get());
         }
+    }
+
+    @GetMapping("orders")
+    public List<Order> getOrders() {
+        return orderDirectory.getOrders();
     }
 
 
