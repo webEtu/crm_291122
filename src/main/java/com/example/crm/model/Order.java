@@ -1,5 +1,7 @@
 package com.example.crm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,25 +9,41 @@ import javax.persistence.*;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     @ManyToOne
     private Client client;
+    @Column(name="type_presta")
     private String type_presta;
+    @Column(name="designation")
     private String designation;
+    @Column(name="nb_days")
     private int nb_days;
+    @Column(name="unit_price")
     private float unit_price;
+    @Column(name="state")
     private boolean state;
+    @JsonIgnore
     private float total_exclude_taxe;
+    @JsonIgnore
     private float total_with_taxe;
 
     public Order() {
     }
 
-    public Long getId() {
+    public Order(Client client, String type_presta, String designation, int nb_days, float unit_price, boolean state) {
+        this.client = client;
+        this.type_presta = type_presta;
+        this.designation = designation;
+        this.nb_days = nb_days;
+        this.unit_price = unit_price;
+        this.state = state;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

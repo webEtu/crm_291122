@@ -7,27 +7,50 @@ import javax.persistence.*;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
+    @Column(name = "company_name")
     private String company_name;
+    @Column(name = "first_name")
     private String first_name;
+    @Column(name = "last_name")
     private String last_name;
+    @Column(name = "email")
     private String email;
+    @Column(name = "phone")
     private String phone;
+    @Column(name = "address", columnDefinition = "TEXT")
     private String address;
+    @Column(name = "zip_code")
     private String zip_code;
+    @Column(name = "city")
     private String city;
+    @Column(name = "country")
     private String country;
+    @Column(name = "state")
     private boolean state;
 
     public Client() {
 
     }
 
-    public Long getId() {
+    public Client(String company_name, String first_name, String last_name, String email, String phone, String address, String zip_code, String city, String country, boolean state) {
+        this.company_name = company_name;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.zip_code = zip_code;
+        this.city = city;
+        this.country = country;
+        this.state = state;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
