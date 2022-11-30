@@ -52,4 +52,8 @@ public class OrderController {
     }
 
 
+    @PatchMapping("orders/{id}")
+    public void patchOrder(@RequestBody Order order , @PathVariable("id") Integer id) {
+        orderDirectory.patchOrder(order , id);
+    }
 }

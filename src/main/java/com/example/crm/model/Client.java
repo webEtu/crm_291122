@@ -26,7 +26,7 @@ public class Client {
     private String city;
     @Column(name = "country")
     private String country;
-    @Column(name = "state")
+    @Column(name = "state", columnDefinition = "BIT")
     private ClientState state;
 
     public Client() {

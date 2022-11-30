@@ -34,4 +34,13 @@ public class OrderDirectory {
         orderRepository.save(orderToUpdate);
     }
 
+    public void patchOrder(Order orderToUpdate , Integer id) {
+        Optional<Order> op = orderRepository.findById(id);
+        if(op.isPresent()) {
+            Order order = op.get();
+            order.patch(orderToUpdate);
+            orderRepository.save(order);
+        }
+    }
+
 }
