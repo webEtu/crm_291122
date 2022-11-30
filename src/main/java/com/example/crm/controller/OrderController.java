@@ -18,7 +18,7 @@ public class OrderController {
     @GetMapping("orders/{id}")
     public ResponseEntity<Order> getOrder(@PathVariable("id") Integer id) {
         Optional<Order> optionalOrder = orderDirectory.getOrder(id);
-        if(optionalOrder.isEmpty()) {
+        if (optionalOrder.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
             return ResponseEntity.ok(optionalOrder.get());
@@ -36,5 +36,8 @@ public class OrderController {
         return newOrder;
     }
 
-
+    @DeleteMapping("orders/{id}")
+    public void deleteOrder(@PathVariable("id") Integer id) {
+        orderDirectory.deleteOrder(id);
+    }
 }
