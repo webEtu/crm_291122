@@ -29,4 +29,9 @@ public class OrderDirectory {
     public void deleteOrder(Integer id) {
         orderRepository.deleteById(id);
     }
+
+    public void updateOrder(Order orderToUpdate , Integer id) {
+        orderRepository.save(orderToUpdate);
+    }
+
 }

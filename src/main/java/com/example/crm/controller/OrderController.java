@@ -40,4 +40,16 @@ public class OrderController {
     public void deleteOrder(@PathVariable("id") Integer id) {
         orderDirectory.deleteOrder(id);
     }
+
+    @PutMapping("orders/{id")
+    public ResponseEntity updateOrder(@RequestBody Order order, @PathVariable("id") Integer id) {
+        if(id != order.getId()) {
+            return ResponseEntity.badRequest().build();
+        } else {
+            orderDirectory.updateOrder(order , id);
+            return ResponseEntity.ok().build();
+        }
+    }
+
+
 }
