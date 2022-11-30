@@ -27,7 +27,9 @@ public class ClientDirectory {
         return clientRepository.findById(id);
     }
 
-
+    public void deleteClient(Integer id) {
+        clientRepository.deleteById(id);
+    }
 
 
 }

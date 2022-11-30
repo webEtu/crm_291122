@@ -14,7 +14,7 @@ import java.util.Optional;
 public class ClientController {
 
     @Autowired
-    private ClientDirectory  clientDirectory;
+    private ClientDirectory clientDirectory;
 
     @GetMapping("clients")
     public List<Client> getClients() {
@@ -24,7 +24,7 @@ public class ClientController {
     @GetMapping("clients/{id}")
     public ResponseEntity<Client> getClient(@PathVariable("id") Integer id) {
         Optional<Client> optionalClient = clientDirectory.getClient(id);
-        if(optionalClient.isEmpty()) {
+        if (optionalClient.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {
             return ResponseEntity.ok(optionalClient.get());
@@ -37,5 +37,9 @@ public class ClientController {
         return newClient;
     }
 
+    @DeleteMapping("clients/{id}")
+    public void deleteClient(@PathVariable("id") Integer id) {
+        clientDirectory.deleteClient(id);
+    }
 
 }
