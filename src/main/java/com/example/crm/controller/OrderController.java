@@ -30,18 +30,15 @@ public class OrderController {
         return orderDirectory.getOrders();
     }
 
-    @PostMapping("orders")
-    public Order postOrder(@RequestBody Order newOrder) {
-        orderDirectory.addOrder(newOrder);
-        return newOrder;
-    }
+//******
+
 
     @DeleteMapping("orders/{id}")
     public void deleteOrder(@PathVariable("id") Integer id) {
         orderDirectory.deleteOrder(id);
     }
 
-    @PutMapping("orders/{id")
+    @PutMapping("orders/{id}")
     public ResponseEntity updateOrder(@RequestBody Order order, @PathVariable("id") Integer id) {
         if(id != order.getId()) {
             return ResponseEntity.badRequest().build();

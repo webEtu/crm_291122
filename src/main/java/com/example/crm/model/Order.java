@@ -22,10 +22,6 @@ public class Order {
     private Float unit_price;
     @Column(name="state" , columnDefinition = "BIT")
     private OrderState state;
-    @JsonIgnore
-    private Float total_exclude_taxe;
-    @JsonIgnore
-    private Float total_with_taxe;
 
     public Order() {
     }
@@ -95,21 +91,7 @@ public class Order {
         this.state = state;
     }
 
-    public Float getTotal_exclude_taxe() {
-        return total_exclude_taxe;
-    }
 
-    public void setTotal_exclude_taxe(Float total_exclude_taxe) {
-        this.total_exclude_taxe = total_exclude_taxe;
-    }
-
-    public Float getTotal_with_taxe() {
-        return total_with_taxe;
-    }
-
-    public void setTotal_with_taxe(Float total_with_taxe) {
-        this.total_with_taxe = total_with_taxe;
-    }
 
     @Override
     public String toString() {
@@ -121,9 +103,7 @@ public class Order {
                 ", nb_days=" + nb_days +
                 ", unit_price=" + unit_price +
                 ", state=" + state +
-                ", total_exclude_taxe=" + total_exclude_taxe +
-                ", total_with_taxe=" + total_with_taxe +
-                '}';
+                               '}';
     }
 
     public void patch(Order orderToUpdate) {
